@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: gld_dim_producto
+    description: "Dimensión de productos vendidos en la cadena de supermercados."
+    columns:
+      - name: id_producto
+        description: "Llave primaria única de producto."
+        tests:
+          - unique
+          - not_null
+
+  - name: gld_dim_hogar
+    description: "Dimensión de los 2.500 hogares del estudio, con demografía limpia."
+    columns:
+      - name: id_hogar
+        description: "Llave primaria única del hogar."
+        tests:
+          - unique
+          - not_null
+
+  - name: gld_dim_tiempo
+    description: "Dimensión de tiempo relativo para los 711 días del estudio."
+    columns:
+      - name: dia
+        description: "Llave primaria de día."
+        tests:
+          - unique
+          - not_null
+
+  - name: gld_dim_tienda
+    description: "Dimensión de tiendas físicas."
+    columns:
+      - name: id_tienda
+        description: "Llave primaria de tienda."
+        tests:
+          - unique
+          - not_null
+
+  - name: gld_dim_campana
+    description: "Dimensión de las 30 campañas de marketing directo."
+    columns:
+      - name: id_campana
+        description: "Llave primaria de campaña."
+        tests:
+          - unique
+          - not_null
+
+  - name: gld_fact_ventas
+    description: "Tabla de hechos de transacciones de compra a nivel de línea de tiquete."
+    columns:
+      - name: id_producto
+        description: "Llave foránea hacia la dimensión de productos."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('gld_dim_producto')
+              field: id_producto
+
+      - name: id_hogar
+        description: "Llave foránea hacia la dimensión de hogares."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('gld_dim_hogar')
+              field: id_hogar
+
+      - name: id_tienda
+        description: "Llave foránea hacia la dimensión de tiendas."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('gld_dim_tienda')
+              field: id_tienda
+
+      - name: dia
+        description: "Llave foránea hacia la dimensión de tiempo."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('gld_dim_tiempo')
+              field: dia

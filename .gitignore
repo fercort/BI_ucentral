@@ -1,0 +1,80 @@
+# ==========================================
+# Python & Bytecode
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# ==========================================
+# Entornos Virtuales (Virtual Environments)
+# ==========================================
+.venv/
+venv/
+ENV/
+env/
+
+# ==========================================
+# Variables de entorno y secretos
+# ==========================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ==========================================
+# Lakehouse & Datos pesados (Exceden límites de GitHub)
+# ==========================================
+data/
+database/
+*.duckdb
+*.duckdb.wal
+*.parquet
+*.sqlite
+*.sqlite3
+*.db
+# Si tienes exports CSV puntuales en la raíz
+*.csv.gz
+
+# ==========================================
+# dbt (Data Build Tool)
+# ==========================================
+target/
+dbt_packages/
+logs/
+*.log
+dbt.log
+.user.yml
+
+# ==========================================
+# Streamlit
+# ==========================================
+.streamlit/secrets.toml
+
+# ==========================================
+# IDEs & Editores
+# ==========================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ==========================================
+# Sistema Operativo (OS metadata)
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
